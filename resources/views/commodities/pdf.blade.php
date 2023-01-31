@@ -30,7 +30,7 @@
           <td colspan="2">Arsip BPSDM</td>
         </tr>
         <tr>
-          <th>Kode Surat</th>
+          <th>Kode File</th>
           <td>{{ $commodity->item_code }}</td>
         </tr>
         <tr>
