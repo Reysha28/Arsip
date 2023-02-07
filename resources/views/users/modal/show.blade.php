@@ -9,12 +9,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="row">
-          <div class="col-lg-12">
-            <label for="item_code"><b>Kode File</b></label>
-            <input type="text" name="" class="form-control" id="item_code" placeholder="" disabled>
-          </div>
-        </div>
+        
         <hr>
         <div class="row">
           <table class="table">
@@ -26,47 +21,15 @@
               <td id="name"></td>
             </tr>
             <tr>
-              <td>
-                <b>Jenis File</b>
-              </td>
-              <td>:</td>
-              <td id="commodity_location_id"></td>
-            </tr>
-          </table>
-        </div>
-        <hr>
-        <div class="row">
-          <div class="col-lg-6">
-            <label for="brand"><b>File</b></label>
-            <input type="text" name="" class="form-control" id="brand" placeholder="" disabled>
-          </div>
-          
-          <div class="col-lg-6">
-            <label for="date_of_purchase"><b>Tanggal Masuk</b></label>
-            <input type="text" name="" class="form-control" id="date_of_purchase" placeholder="" disabled>
-          </div>
-        </div>
-        <hr>
-        <div class="row">
-          <table class="table">
-            <tr>
               <td style="width: 145px;">
-                <b>Asal File</b>
+                <b>Email</b>
               </td>
               <td style="width: 20px;">:</td>
-              <td id="school_operational_assistance_id"></td>
-            </tr>
-            <tr>
-              <td>
-                <b>Keterangan</b>
-              </td>
-              <td>:</td>
-              <td id="note"></td>
+              <td id="email"></td>
             </tr>
           </table>
         </div>
         <hr>
-
 
       </div>
       <div class="modal-footer">

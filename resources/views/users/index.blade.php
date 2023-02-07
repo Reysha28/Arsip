@@ -1,4 +1,4 @@
-@extends('layouts.stisla.index', ['title' => 'Halaman Data Arsip', 'page_heading' => 'Daftar Arsip'])
+@extends('layouts.stisla.index', ['title' => 'Halaman Data User', 'page_heading' => 'Daftar User'])
 
 @section('content')
 <div class="card">
@@ -27,9 +27,6 @@
 
   <div class="row">
     <div class="col-lg-12">
-      <a href="{{ route('arsip.print') }}" class="btn btn-success float-right mt-3 mx-3" data-toggle="tooltip" title="Print">
-        <i class="fas fa-fw fa-print"></i>
-      </a>
 
       <button type="button" class="btn btn-primary float-right mt-3 mx-3" data-toggle="modal" data-target="#commodity_create_modal">
         <i class="fas fa-fw fa-plus"></i>
@@ -41,10 +38,6 @@
         Import
       </button> -->
 
-      <a href="{{ route('excel.barang.export') }}" class="btn btn-success float-right mt-3 mx-3" data-toggle="tooltip" title="Export Excel">
-        <i class="fas fa-fw fa-file-excel"></i>
-      </a>
-
     </div>
   </div>
   <div class="row px-3 py-3">
@@ -54,44 +47,28 @@
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Kode File</th>
-              <th scope="col">Nama File</th>
-              <th scope="col">Tanggal Masuk</th>
-              <th scope="col">Kondisi</th>
+              <th scope="col">Nama</th>
+              <th scope="col">Email</th>
               <th scope="col">Aksi</th>
             </tr>
           </thead>
           <tbody>
-            @foreach($commodities as $commodity)
+            @foreach($users as $user)
             <tr>
               <th scope="row">{{ $loop->iteration }}</th>
-              <td>{{ $commodity->item_code }}</td>
-              <td>{{ Str::limit($commodity->name, 55, '...') }}</td>
-              <td>{{ $commodity->date_of_purchase }}</td>
-              @if($commodity->condition === 1)
-              <td>
-                <span class="badge badge-pill badge-success" data-toggle="tooltip" data-placement="top" title="Baik">Umum</span>
-              </td>
-              @elseif($commodity->condition === 2)
-              <td>
-                <span class="badge badge-pill badge-warning" data-toggle="tooltip" data-placement="top" title="Kurang Baik">Penting</span>
-              </td>
-              @else
-              <td>
-                <span class="badge badge-pill badge-danger" data-toggle="tooltip" data-placement="top" title="Rusak Berat">Rahasia</span>
-              </td>
-              @endif
+              <td>{{ Str::limit($user->name, 55, '...') }}</td>
+              <td>{{ $user->email }}</td>
               <td class="text-center">
-                <a data-id="{{ $commodity->id }}" class="btn btn-sm btn-info text-white show_modal" data-toggle="modal" data-target="#show_commodity" title="Lihat Detail">
+                <a data-id="{{ $user->id }}" class="btn btn-sm btn-info text-white show_modal" data-toggle="modal" data-target="#show_commodity" title="Lihat Detail">
                   <i class="fas fa-fw fa-info"></i>
                 </a>
-                <a data-id="{{ $commodity->id }}" class="btn btn-sm btn-success text-white swal-edit-button" data-toggle="modal" data-target="#edit_commodity" data-placement="top" title="Ubah data">
+                <a data-id="{{ $user->id }}" class="btn btn-sm btn-success text-white swal-edit-button" data-toggle="modal" data-target="#edit_commodity" data-placement="top" title="Ubah data">
                   <i class="fas fa-fw fa-edit"></i>
                 </a>
-                <a href="{{ route('arsip.print.one', $commodity->id) }}" class="btn btn-sm text-white btn-primary" data-toggle="tooltip" title="Print">
-                  <i class="fas fa-fw fa-print"></i>
+                <a data-id="{{ $user->id }}" class="btn btn-sm btn-warning text-white swal-edit-button" data-toggle="modal" data-target="#edit_commodity2" data-placement="top" title="Ubah password">
+                  <i class="fas fa-fw fa-key"></i>
                 </a>
-                <a data-id="{{ $commodity->id }}" class="btn btn-sm btn-danger text-white swal-delete-button" data-toggle="tooltip" data-placement="top" title="Hapus data">
+                <a data-id="{{ $user->id }}" class="btn btn-sm btn-danger text-white swal-delete-button" data-toggle="tooltip" data-placement="top" title="Hapus data">
                   <i class="fas fa-fw fa-trash-alt"></i>
                 </a>
               </td>
@@ -106,12 +83,13 @@
 @endsection
 
 @push('modal')
-@include('commodities.modal.show')
-@include('commodities.modal.create')
-@include('commodities.modal.edit')
-@include('commodities.modal.import')
+@include('users.modal.show')
+@include('users.modal.create')
+@include('users.modal.edit')
+@include('users.modal.edit2')
+@include('users.modal.import')
 @endpush
 
 @push('js')
-@include('commodities._script')
+@include('users._script')
 @endpush

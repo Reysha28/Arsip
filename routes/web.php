@@ -42,8 +42,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('/arsip', 'Commodities\CommodityController');
     Route::resource('/jenis', 'SchoolOperationalAssistances\SchoolOperationalAssistance');
     Route::resource('/ruang', 'CommodityLocations\CommodityLocationController');
+    Route::resource('/users', 'Users\User');
 
     Route::resource('/commodities/json', 'Commodities\Ajax\CommodityAjaxController');
     Route::resource('/school-operational/json', 'SchoolOperationalAssistances\Ajax\SchoolOperationalAssistanceAjaxController');
     Route::resource('/commodity-locations/json', 'CommodityLocations\Ajax\CommodityLocationAjaxController');
+    Route::resource('/user/json', 'Users\Ajax\UserAjaxController');
 });
