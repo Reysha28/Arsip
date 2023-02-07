@@ -21,7 +21,7 @@
 
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="acquisition">Asal Perolehan</label>
+                                <label for="acquisition">Jenis</label>
                                 <select class="custom-select" id="school_operational_assistance_id_edit">
                                     <option selected>Pilih</option>
                                     @foreach($school_operational_assistances as $school_operational_assistance)
@@ -53,7 +53,7 @@
 
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="commodity_location_id_edit">Lokasi</label>
+                                <label for="commodity_location_id_edit">Asal File</label>
                                 <select class="custom-select" id="commodity_location_id_edit">
                                     <option selected>Pilih</option>
                                     @foreach($commodity_locations as $commodity_location)

@@ -6,41 +6,31 @@
 
             $.ajax({
                 type: "GET",
-                url: "commodities/json/" + id,
+                url: "user/json/" + id,
                 data: {
                     id: id,
                     _token: token
                 },
                 success: function(data) {
-                    $("#modalLabel").html(data.data.item_code)
-                    $("#item_code").val(data.data.item_code)
-                    $("#commodity_location_id").html(data.data.commodity_location_id)
                     $("#name").html(data.data.name)
-                    $("#date_of_purchase").val(data.data.date_of_purchase)
-                    $("#school_operational_assistance_id").html(data.data.school_operational_assistance_id)
-                    $("#note").html(data.data.note)
-                    $("#brand").val(data.data.brand)
+                    $("#email").html(data.data.email)
+                    $("#password").html(data.data.password)
                 }
             })
         })
 
-        $("form[name='commodity_create']").submit(function(e) {
+        $("form[name='user_create']").submit(function(e) {
             e.preventDefault();
             let token = $("input[name=_token]").val();
 
             $.ajax({
                 type: "POST",
-                url: "commodities/json",
+                url: "user/json",
                 data: {
                     _token: token,
-                    school_operational_assistance_id: $("#school_operational_assistance_id_create").val(),
-                    commodity_location_id: $("#commodity_location_id_create").val(),
-                    item_code: $("#item_code_create").val(),
                     name: $("#name_create").val(),
-                    date_of_purchase: $("#date_of_purchase_create").val(),
-                    condition: $("#condition_create").val(),
-                    note: $("#note_create").val(),
-                    brand: $("#brand_create").val(),
+                    email: $("#email_create").val(),
+                    password: $("#password_create").val(),
                 },
                 success: function(data) {
                     Swal.fire({
@@ -81,21 +71,15 @@
             $("#swal-update-button").attr("data-id", id);
 
             $.ajax({
-                url: "commodities/json/" + id + "/edit",
+                url: "user/json/" + id + "/edit",
                 type: "GET",
                 data: {
                     id: id,
                     _token: token
                 },
                 success: function(data) {
-                    $("#school_operational_assistance_id_edit").val(data.data.school_operational_assistance_id)
-                    $("#commodity_location_id_edit").val(data.data.commodity_location_id)
-                    $("#item_code_edit").val(data.data.item_code)
                     $("#name_edit").val(data.data.name)
-                    $("#date_of_purchase_edit").val(data.data.date_of_purchase)
-                    $("#condition_edit").val(data.data.condition)
-                    $("#note_edit").val(data.data.note)
-                    $("#brand_edit").val(data.data.brand)
+                    $("#email_edit").val(data.data.email)
                 },
                 error: function(data) {
                     Swal.fire("Gagal!", "Tidak dapat melihat info.", "warning");
@@ -110,21 +94,60 @@
             let token = $("input[name=_token]").val();
 
             let name = $("#name_edit").val();
-            let description = $("#description_edit").val();
+            let email = $("#email_edit").val();
 
             $.ajax({
-                url: "commodities/json/" + id,
+                url: "user/json/" + id,
                 type: "PUT",
                 data: {
                     _token: token,
-                    school_operational_assistance_id: $("#school_operational_assistance_id_edit").val(),
-                    commodity_location_id: $("#commodity_location_id_edit").val(),
-                    item_code: $("#item_code_edit").val(),
                     name: $("#name_edit").val(),
-                    brand: $("#brand_edit").val(),
-                    date_of_purchase: $("#date_of_purchase_edit").val(),
-                    condition: $("#condition_edit").val(),
-                    note: $("#note_edit").val(),
+                    email: $("#email_edit").val(),
+                },
+                success: function(data) {
+                    Swal.fire({
+                        title: "Berhasil",
+                        text: "Data berhasil diubah.",
+                        icon: "success",
+                        timerProgressBar: true,
+                        onBeforeOpen: () => {
+                            Swal.showLoading();
+                            timerInterval = setInterval(() => {
+                                const content = Swal.getContent();
+                                if (content) {
+                                    const b = content.querySelector("b");
+                                    if (b) {
+                                        b.textContent = Swal.getTimerLeft();
+                                    }
+                                }
+                            }, 100);
+                        },
+                        showConfirmButton: false
+                    });
+                    setTimeout(function() {
+                        location.reload();
+                    }, 800)
+                },
+                error: function(data) {
+                    Swal.fire("Gagal!", "Tidak dapat mengubah data.", "warning");
+                }
+            });
+        });
+
+        $("#swal-update2-button").click(function(e) {
+            e.preventDefault();
+            // Get id injected by .swal-edit-button
+            let id = $("#swal-update2-button").attr("data-id");
+            let token = $("input[name=_token]").val();
+
+            let passowrd = $("#name_password").val();
+
+            $.ajax({
+                url: "user/json/" + id,
+                type: "PUT",
+                data: {
+                    _token: token,
+                    password: $("#name_password").val(),
                 },
                 success: function(data) {
                     Swal.fire({
@@ -171,7 +194,7 @@
                     let id = $(this).data("id");
                     let token = $("input[name=_token]").val();
                     $.ajax({
-                        url: "commodities/json/" + id,
+                        url: "user/json/" + id,
                         type: "DELETE",
                         data: {
                             id: id,

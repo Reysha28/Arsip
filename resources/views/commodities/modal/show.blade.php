@@ -11,8 +11,8 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-lg-12">
-            <label for="item_code"><b>Kode File</b></label>
-            <input type="text" name="" class="form-control" id="item_code" placeholder="" disabled>
+            <label for=""><b>Nama File</b></label>
+            <input type="text" name="" class="form-control" id="name" placeholder="" disabled>
           </div>
         </div>
         <hr>
@@ -20,14 +20,21 @@
           <table class="table">
             <tr>
               <td style="width: 145px;">
-                <b>Nama File</b>
+                <b>Jenis File</b>
               </td>
               <td style="width: 20px;">:</td>
-              <td id="name"></td>
+              <td id="school_operational_assistance_id"></td>
             </tr>
             <tr>
               <td>
-                <b>Jenis File</b>
+                <b>Keterangan</b>
+              </td>
+              <td>:</td>
+              <td id="note"></td>
+            </tr>
+            <tr>
+              <td>
+                <b>Asal File</b>
               </td>
               <td>:</td>
               <td id="commodity_location_id"></td>
@@ -47,24 +54,6 @@
           </div>
         </div>
         <hr>
-        <div class="row">
-          <table class="table">
-            <tr>
-              <td style="width: 145px;">
-                <b>Asal File</b>
-              </td>
-              <td style="width: 20px;">:</td>
-              <td id="school_operational_assistance_id"></td>
-            </tr>
-            <tr>
-              <td>
-                <b>Keterangan</b>
-              </td>
-              <td>:</td>
-              <td id="note"></td>
-            </tr>
-          </table>
-        </div>
         <hr>
 
 
