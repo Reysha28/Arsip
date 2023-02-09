@@ -134,20 +134,43 @@
             });
         });
 
+        $(".swal-edit2-button").click(function() {
+            let id = $(this).data("id");
+            let token = $("input[name=_token]").val();
+
+            // Injecting an id with relevant data on click for updating on #swal-update-button
+            $("#swal-update2-button").attr("data-id", id);
+
+            $.ajax({
+                url: "user/json/" + id + "/editt",
+                type: "GET",
+                data: {
+                    id: id,
+                    _token: token
+                },
+                success: function(data) {
+                    $("#password_edit").val(data.data.password)
+                },
+                error: function(data) {
+                    Swal.fire("Gagal!", "Tidak dapat melihat info.", "warning");
+                }
+            });
+        });
+
         $("#swal-update2-button").click(function(e) {
             e.preventDefault();
             // Get id injected by .swal-edit-button
             let id = $("#swal-update2-button").attr("data-id");
             let token = $("input[name=_token]").val();
 
-            let passowrd = $("#name_password").val();
+            let password = $("#password_edit").val();
 
             $.ajax({
                 url: "user/json/" + id,
                 type: "PUT",
                 data: {
                     _token: token,
-                    password: $("#name_password").val(),
+                    password: $("#password_edit").val(),
                 },
                 success: function(data) {
                     Swal.fire({

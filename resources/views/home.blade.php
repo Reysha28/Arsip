@@ -81,9 +81,6 @@
 </div>
 @endsection
 
-@push('modal')
-@include('show')
-@endpush
 
 @push('js')
 @include('_script');

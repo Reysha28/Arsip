@@ -21,9 +21,9 @@
             <li class="nav-item dropdown {{ Request::segment(2) === 'ruang' ? 'active' : '' }}">
                 <a href="{{ route('ruang.index') }}" class="nav-link"><i class="fas fa-th"></i> <span>Ruang</span></a>
             </li>
-            <li class="nav-item dropdown {{ Request::segment(2) === 'users' ? 'active' : '' }}">
+            {{-- <li class="nav-item dropdown {{ Request::segment(2) === 'users' ? 'active' : '' }}">
                 <a href="{{ route('users.index') }}" class="nav-link"><i class="fas fa-user"></i> <span>User</span > </a>
-            </li>
+            </li> --}}
         </ul>
 
         <div class="mt-4 mb-4 p-3 hide-sidebar-mini">

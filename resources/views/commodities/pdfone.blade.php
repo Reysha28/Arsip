@@ -26,7 +26,7 @@
       <td colspan="2">Barang Milik BPSDM</td>
     </tr>
     <tr>
-      <th>Kode Surat</th>
+      <th>Kode Arsip</th>
       <td>{{ $commodity->item_code }}</td>
     </tr>
     <tr>

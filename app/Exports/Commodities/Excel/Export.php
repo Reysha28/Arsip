@@ -26,17 +26,13 @@ class Export implements FromCollection, WithHeadings, ShouldAutoSize
     {
         return [
             'No.',
-            'Kode Barang',
-            'Nama Barang',
-            'Merek',
-            'Bahan',
+            'Kode Arsip',
+            'Nama Arsip',
+            'Link File',
+            'Jenis Arsip',
             'Asal Perolehan',
-            'Lokasi',
-            'Tahun Pembelian',
+            'Tanggal Masuk',
             'Kondisi',
-            'Kuantitas',
-            'Harga',
-            'Harga Satuan',
             'Keterangan'
         ];
     }
@@ -59,14 +55,10 @@ class Export implements FromCollection, WithHeadings, ShouldAutoSize
             $data[$key]['item_code'] = $commodity->item_code;
             $data[$key]['name'] = $commodity->name;
             $data[$key]['brand'] = $commodity->brand;
-            $data[$key]['material'] = $commodity->material;
             $data[$key]['school_operational_assistance_id'] = $commodity->school_operational_assistance->name;
             $data[$key]['location'] = $commodity->commodity_location->name;
             $data[$key]['date_of_purchase'] = $commodity->date_of_purchase;
             $data[$key]['condition'] = $this->checkCommodityConditions($commodity);
-            $data[$key]['quantity'] = $commodity->quantity;
-            $data[$key]['price'] = $commodity->price;
-            $data[$key]['price_per_item'] = $commodity->price_per_item;
             $data[$key]['note'] = $commodity->note;
         }
 
@@ -76,11 +68,11 @@ class Export implements FromCollection, WithHeadings, ShouldAutoSize
     public function checkCommodityConditions($commodity)
     {
         if ($commodity->condition === 1) {
-            $condition = 'Baik';
+            $condition = 'Umum';
         } elseif ($commodity->condition === 2) {
-            $condition = 'Kurang Baik';
+            $condition = 'Penting';
         } else {
-            $condition = 'Rusak Berat';
+            $condition = 'Rahasia';
         }
 
         return $condition;

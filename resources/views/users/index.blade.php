@@ -65,7 +65,7 @@
                 <a data-id="{{ $user->id }}" class="btn btn-sm btn-success text-white swal-edit-button" data-toggle="modal" data-target="#edit_commodity" data-placement="top" title="Ubah data">
                   <i class="fas fa-fw fa-edit"></i>
                 </a>
-                <a data-id="{{ $user->id }}" class="btn btn-sm btn-warning text-white swal-edit-button" data-toggle="modal" data-target="#edit_commodity2" data-placement="top" title="Ubah password">
+                <a data-id="{{ $user->id }}" class="btn btn-sm btn-warning text-white swal-edit2-button" data-toggle="modal" data-target="#edit_commodity2" data-placement="top" title="Ubah password">
                   <i class="fas fa-fw fa-key"></i>
                 </a>
                 <a data-id="{{ $user->id }}" class="btn btn-sm btn-danger text-white swal-delete-button" data-toggle="tooltip" data-placement="top" title="Hapus data">
