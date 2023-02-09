@@ -62,6 +62,11 @@
                             </div>
                         </form>
 
+                        <div class="mt-5 text-center">
+                            Belum Punya Akun? 
+                            <a href="{{ route('register') }}">Buat Akun</a>
+                        </div>
+
                         <div class="text-center mt-5 text-small">
                             Copyright &copy; 2023. Arsip Keuangan BPSDM Prov Sumatera Barat
                         </div>

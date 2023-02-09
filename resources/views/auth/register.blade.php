@@ -103,7 +103,7 @@
               </div>
             </div>
             <div class="simple-footer">
-              Copyright &copy; 2023. Arsip Surat BPSDM prov Sumatera Barat
+              Copyright &copy; 2023. Arsip Keuangan BPSDM Provinsi Sumatera Barat
             </div>
           </div>
         </div>

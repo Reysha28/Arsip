@@ -9,13 +9,13 @@
                 </button>
             </div>
             <div class="modal-body ">
-                <form name="commodity_edit">
+                <form name="commodity_edit2">
                     @csrf
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="password" class="d-block">Password</label>
-                                <input type="text" name="password" class="form-control" id="password_edit">
+                                <input type="password" name="password_edit" class="form-control" id="password_edit">
                             </div>
                         </div>
                     </div>
