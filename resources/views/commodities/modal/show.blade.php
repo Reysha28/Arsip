@@ -9,15 +9,16 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="row">
-          <div class="col-lg-12">
-            <label for=""><b>Nama File</b></label>
-            <input type="text" name="" class="form-control" id="name" placeholder="" disabled>
-          </div>
-        </div>
         <hr>
         <div class="row">
           <table class="table">
+            <tr>
+              <td style="width: 145px;">
+                <b>Nama File</b>
+              </td>
+              <td style="width: 20px;">:</td>
+              <td id="name"></td>
+            </tr>
             <tr>
               <td style="width: 145px;">
                 <b>Jenis File</b>
